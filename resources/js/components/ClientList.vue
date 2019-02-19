@@ -25,7 +25,7 @@
         methods: {
           wasCalled(client){
         	 axios.get('client/called/'+client.id, {params: {id: this.id}});
-            this.events.splice(client, 1);
+            this.$delete(this.finds,client);
           }
         },
         mounted(){
