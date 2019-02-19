@@ -1794,7 +1794,7 @@ __webpack_require__.r(__webpack_exports__);
     wasCalled: function wasCalled(id) {
       var _this2 = this;
 
-      axios.get('client/called', {
+      axios.get('client/called/' + id, {
         params: {
           id: this.id
         }

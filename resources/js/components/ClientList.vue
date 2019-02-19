@@ -24,7 +24,7 @@
     	},
         methods: {
           wasCalled(id){
-        	 axios.get('client/called', {params: {id: this.id}});
+        	 axios.get('client/called/'+id, {params: {id: this.id}});
            	axios.get('clients/waiting',{params: {name: this.name}})
               .then(response => {
                   this.clients = response.data;
