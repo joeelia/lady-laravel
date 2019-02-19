@@ -1780,7 +1780,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    Echo.join('haircut').listen('reserved', function (client) {
+    Echo.join('haircut').listenForWhisper('reserved', function (client) {
       _this.clients.push(client);
     });
   },

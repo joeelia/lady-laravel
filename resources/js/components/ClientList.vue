@@ -15,7 +15,7 @@
         },
     created() {
         Echo.join('haircut')
-            .listen('reserved', (client) => {
+            .listenForWhisper('reserved', (client) => {
                 this.clients.push(client);
             });
     	},
