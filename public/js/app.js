@@ -47837,17 +47837,20 @@ var render = function() {
     _c(
       "ul",
       _vm._l(_vm.clients, function(client) {
-        return _c(
-          "li",
-          {
-            on: {
-              click: function($event) {
-                return _vm.wasCalled(this.id)
+        return _c("li", [
+          _c(
+            "a",
+            {
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  return _vm.wasCalled(client.id)
+                }
               }
-            }
-          },
-          [_c("a", { attrs: { href: "#" } }, [_vm._v(_vm._s(client.name))])]
-        )
+            },
+            [_vm._v(_vm._s(client.name))]
+          )
+        ])
       }),
       0
     )

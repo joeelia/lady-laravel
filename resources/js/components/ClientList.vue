@@ -2,7 +2,7 @@
 <div id="main">
   <h1> Haircuts Waiting </h1>
   	<ul>
-      <li v-for="client in clients" @click="wasCalled(this.id)"><a href="#">{{ client.name }}</a></li>
+      <li v-for="client in clients" ><a @click="wasCalled(client.id)" href="#">{{ client.name }}</a></li>
     </ul>
 </div>
 </template>
