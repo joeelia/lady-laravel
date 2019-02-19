@@ -25,7 +25,7 @@
         methods: {
           wasCalled(client){
         	 axios.get('client/called/'+client.id, {params: {id: this.id}});
-            this.clients.splice(client, 1)
+            this.clients.splice(client, client.id);
           }
         },
         mounted(){
