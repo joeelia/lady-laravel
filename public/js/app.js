@@ -1791,32 +1791,25 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    wasCalled: function wasCalled(id) {
-      var _this2 = this;
-
-      axios.get('client/called/' + id, {
+    wasCalled: function wasCalled(client) {
+      axios.get('client/called/' + client.id, {
         params: {
           id: this.id
         }
       });
-      axios.get('clients/waiting', {
-        params: {
-          name: this.name
-        }
-      }).then(function (response) {
-        _this2.clients = response.data;
-      });
+      mounted();
+      this.events.splice(client, 1);
     }
   },
   mounted: function mounted() {
-    var _this3 = this;
+    var _this2 = this;
 
     axios.get('clients/waiting', {
       params: {
         name: this.name
       }
     }).then(function (response) {
-      _this3.clients = response.data;
+      _this2.clients = response.data;
     });
   }
 });
@@ -6403,7 +6396,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Lazy browser reset */\n* {\n  margin: 0;\n  padding:0;\n}\n#main {\n  width: 200px;\n  margin: 20px auto;\n}\n\n/* typography */\nh1 {\n  font-family: helvetica, arial, sans-serif;\n  font-szie: 30px;\n  color: #000;\n}\n\n/* list styles */\nul {\n  list-style: none;\n  width:200px;\n  margin: 0;\n  padding: 0;\n}\nli {\n  text-decoration: none;\n  font: 24px helvetica, arial, sans-serif;\n  border-bottom: 1px solid #999;\n}\nli:first-child {\n  border-top: 1px solid #999;\n}\nli a {\n  text-decoration:none;\n  color: #999;\n  display: block;\n  width: 200px;\n  height: 40px;\n\tline-height: 40px;\n  \n  /* transitions and animations */\n  transition: font-size 0.3s ease, background-color 1s ease;\n}\nli a:hover {\n  font: 26px helvetica, arial, sans-serif;\n  line-height: 40px;\n  text-decoration: none;\n  color: #999;\n  background: #e3e3e3;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Lazy browser reset */\n* {\n  margin: 0;\n  padding:0;\n}\n#main {\n  width: 200px;\n  margin: 20px auto;\n}\n\n/* typography */\nh1 {\n  font-family: helvetica, arial, sans-serif;\n  font-szie: 30px;\n  color: #000;\n}\n\n/* list styles */\nul {\n  list-style: none;\n  width:200px;\n  margin: 0;\n  padding: 0;\n}\nli {\n  text-decoration: none;\n  font: 24px helvetica, arial, sans-serif;\n  border-bottom: 1px solid #999;\n}\nli:first-child {\n  border-top: 1px solid #999;\n}\nli a {\n  text-decoration:none;\n  color: #999;\n  display: block;\n  width: 200px;\n  height: 40px;\n\tline-height: 40px;\n  \n  /* transitions and animations */\n  transition: font-size 0.3s ease, background-color 1s ease;\n}\nli a:hover {\n  font: 26px helvetica, arial, sans-serif;\n  line-height: 40px;\n  text-decoration: none;\n  color: #999;\n  background: #e3e3e3;\n}\n", ""]);
 
 // exports
 
@@ -47844,7 +47837,7 @@ var render = function() {
               attrs: { href: "#" },
               on: {
                 click: function($event) {
-                  return _vm.wasCalled(client.id)
+                  return _vm.wasCalled(client)
                 }
               }
             },

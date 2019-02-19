@@ -2,7 +2,7 @@
 <div id="main">
   <h1> Haircuts Waiting </h1>
   	<ul>
-      <li v-for="client in clients" ><a @click="wasCalled(client.id)" href="#">{{ client.name }}</a></li>
+      <li v-for="client in clients" ><a @click="wasCalled(client)" href="#">{{ client.name }}</a></li>
     </ul>
 </div>
 </template>
@@ -23,12 +23,10 @@
             });
     	},
         methods: {
-          wasCalled(id){
-        	 axios.get('client/called/'+id, {params: {id: this.id}});
-           	axios.get('clients/waiting',{params: {name: this.name}})
-              .then(response => {
-                  this.clients = response.data;
-            });
+          wasCalled(client){
+        	 axios.get('client/called/'+client.id, {params: {id: this.id}});
+           	 mounted();
+            this.events.splice(client, 1);
           }
         },
         mounted(){
