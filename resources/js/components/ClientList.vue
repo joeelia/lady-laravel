@@ -14,7 +14,7 @@
             }
         },
     created() {
-        Echo.join('haircut')
+        Echo.channel('haircut')
             .listen('reserved', (client) => {
                 this.clients.push(client);
                 mounted();
