@@ -24,7 +24,7 @@
     	},
         methods: {
           wasCalled(id){
-        	 axios.delete('clients/called', {params: {id: this.id}});
+        	 axios.get('client/called', {params: {id: this.id}});
            	axios.get('clients/waiting',{params: {name: this.name}})
               .then(response => {
                   this.clients = response.data;
