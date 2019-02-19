@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="/" target="_blank">Client Check-in</a>
+                    <a href="/" target="_blank">Client Check-in</a> <br><br>
                     <a href="/clients" target="_blank">Client List</a>
                 </div>
             </div>
