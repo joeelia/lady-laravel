@@ -11,6 +11,6 @@
 |
 */
 
-Broadcast::channel('haircut', function () {
+Broadcast::channel('haircut', function ($client) {
 	return true;
 });
