@@ -17,8 +17,7 @@ Route::get('clients', 'ClientReserved@clients');
 Route::get('clients/waiting', 'ClientReserved@clientsWaiting');
 Route::post('client/reserved', 'ClientReserved@clientReserved');
 
-/*
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-*/
