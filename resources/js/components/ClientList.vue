@@ -1,8 +1,9 @@
 <template>
 <div id="main">
-  <h1> Haircuts Waiting </h1>
+  <h1 style="text-align: center;"> Haircuts Waiting </h1>
+  <p style="text-align: center;">Call next client 3 times and click their name.</p>
   	<ul>
-      <li v-for="client in clients" ><a @click="wasCalled(client,index)" href="#">{{ client.name }}</a></li>
+      <li v-for="(client, index) in clients" ><a @click="wasCalled(client,index)" href="#">{{ index }}. {{ client.name }}</a></li>
     </ul>
 </div>
 </template>
@@ -25,8 +26,8 @@
         methods: {
           wasCalled(client,index){
         	 axios.get('client/called/'+client.id, {params: {id: this.id}});
-           console.log(index);
-            this.clients.splice(client, index);
+           console.log(client.id,index);
+            this.clients.splice(index, 1);
           }
         },
         mounted(){
