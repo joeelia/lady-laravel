@@ -17,6 +17,8 @@
         Echo.join('haircut')
             .listen('.reserved', (client) => {
                 this.clients.push(client);
+                mounted();
+                console.log("socket fired");
             });
     	},
         methods: {
