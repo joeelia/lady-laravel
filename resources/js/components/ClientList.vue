@@ -15,8 +15,11 @@
         },
     created() {
         Echo.join('haircut')
-            .listenForWhisper('reserved', (client) => {
-                this.clients.push(client);
+            .listenForWhisper('reserved', () => {
+                axios.get('clients/waiting',{params: {name: this.name}})
+		 		.then(response => {
+				  	this.clients = response.data;
+		 	});
             });
     	},
         methods: {
