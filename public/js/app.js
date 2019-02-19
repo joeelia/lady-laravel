@@ -1797,7 +1797,7 @@ __webpack_require__.r(__webpack_exports__);
           id: this.id
         }
       });
-      this.fireDelete(client.id);
+      this.clients.splice(client, 1);
     }
   },
   mounted: function mounted() {
