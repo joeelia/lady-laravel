@@ -2,7 +2,7 @@
 <div id="main">
   <h1> Haircuts Waiting </h1>
   	<ul>
-      <li v-for="client in clients"><a href="#">{{ client.name }}</a></li>
+      <li v-for="client in clients" @click="wasCalled(this.id)"><a href="#">{{ client.name }}</a></li>
     </ul>
 </div>
 </template>
@@ -17,12 +17,19 @@
         Echo.join('haircut')
             .listenForWhisper('reserved', () => {
                 axios.get('clients/waiting',{params: {name: this.name}})
-		 		.then(response => {
+		 		        .then(response => {
 				  	this.clients = response.data;
 		 	});
             });
     	},
         methods: {
+          wasCalled(id){
+        	 axios.delete('clients/called', {params: {id: this.id}});
+           	axios.get('clients/waiting',{params: {name: this.name}})
+              .then(response => {
+                  this.clients = response.data;
+            });
+          }
         },
         mounted(){
         	axios.get('clients/waiting',{params: {name: this.name}})

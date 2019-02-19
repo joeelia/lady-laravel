@@ -16,6 +16,7 @@ Route::get('/', 'ClientReserved@index');
 Route::get('clients', 'ClientReserved@clients');
 Route::get('clients/waiting', 'ClientReserved@clientsWaiting');
 Route::post('client/reserved', 'ClientReserved@clientReserved');
+Route::delete('api/users/{id}', 'ClientReserved@wasCalled');
 
 
 Auth::routes();

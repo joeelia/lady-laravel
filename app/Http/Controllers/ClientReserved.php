@@ -23,7 +23,7 @@ class ClientReserved extends Controller
 
     public function clientsWaiting()
     {
-        $listHaircuts = Haircuts::select('name', 'was_called','created_at')
+        $listHaircuts = Haircuts::select('name', 'was_called','created_at', 'id')
         ->orderBy('id', 'asc')
         ->where('was_called','=',0)
         ->get();
@@ -51,5 +51,12 @@ class ClientReserved extends Controller
         ]);
 		broadcast(new MessageSent(auth()->user(), $message))->toOthers();
         return ['status' => 'Message Sent!'];
+    }
+
+    public function wasCalled($id)
+    {
+        $haircutClient = Haircut::find($id);
+        $haircutClient->was_called = 1;
+        $haircutClient->save();
     }
 }
