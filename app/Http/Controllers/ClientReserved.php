@@ -55,7 +55,7 @@ class ClientReserved extends Controller
 
     public function wasCalled($id)
     {
-        $haircutClient = Haircut::find($id);
+        $haircutClient = Haircuts::find($id);
         $haircutClient->was_called = 1;
         $haircutClient->save();
     }
