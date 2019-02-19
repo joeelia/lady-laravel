@@ -66,7 +66,8 @@
 						  this.errors = response.data.errors;
 						  this.success = "";
 					});
-                
+                Echo.join('haircut')
+                    .whisper('reserved', this.client);
             	console.log("clicked");
             	console.log(this.client);
             	this.isReserved = 1;
