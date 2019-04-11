@@ -26,3 +26,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('chart', 'SaleController@testChart');
 Route::get('analytics/{startdate}/{enddate}', 'SaleController@analytics');
+
+Route::get('/viewsales', 'SaleController@data');

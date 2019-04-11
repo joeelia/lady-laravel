@@ -146,4 +146,13 @@ class SaleController extends Controller
     	
         
     }
+
+    public function data(Request $request, $startdate, $enddate)
+    {
+    	
+        $sales =  Sale::all();
+        return View::make('viewsales', compact('sales'));
+    	
+        
+    }
 }
