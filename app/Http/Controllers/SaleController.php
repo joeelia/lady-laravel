@@ -151,7 +151,7 @@ class SaleController extends Controller
     {
     	
         $sales =  Sale::all();
-        return View::make('viewsales', compact('sales'));
+        return view('viewsales', compact('sales'));
     	
         
     }
