@@ -147,7 +147,7 @@ class SaleController extends Controller
         
     }
 
-    public function data(Request $request, $startdate, $enddate)
+    public function data()
     {
     	
         $sales =  Sale::all();
