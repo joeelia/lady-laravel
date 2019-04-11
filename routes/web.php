@@ -22,3 +22,7 @@ Route::get('client/called/{id}', 'ClientReserved@wasCalled');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('chart', 'SaleController@testChart');
+Route::get('analytics/{startdate}/{enddate}', 'SaleController@analytics');
